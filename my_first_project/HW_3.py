@@ -33,7 +33,7 @@ usd_chf_rate = 0.91
 #  16. Создать переменную rub_item со значением ‘rub’
 rub_item = 'rub'
 #  17. Создать переменную usd_rub_rate со значением 71.88
-usd_rub_rate = 71.88
+usd_rub_rate = 0.014
 #  18. Создать переменную byn_item со значением ‘byn’
 byn_item = 'byn'
 #  19. Создать переменную usd_byn_rate со значением 2.46
@@ -78,27 +78,39 @@ else:
 currency_convertor = item_2
 
 currency_usd = usd_item
-target_currency = eur_item
-target_currency_amount = 50
-currency_result = 0
-if target_currency == 'eur':
-    currency_result = target_currency_amount / usd_eur_rate
-    print(target_currency_amount, eur_item, "=", currency_result, usd_item)
-elif target_currency == 'uah':
-    currency_result = target_currency_amount / usd_uah_rate
-    print(target_currency_amount, uah_item, "=", currency_result, uah_item)
-elif target_currency == 'chf':
-    currency_result = target_currency_amount / usd_chf_rate
-    print(target_currency_amount, chf_item, "=", currency_result, chf_item)
-elif target_currency == 'rub':
-    currency_result = target_currency_amount / usd_rub_rate
-    print(target_currency_amount, rub_item, "=", currency_result, rub_item)
-elif target_currency == 'byn':
-    currency_result = target_currency_amount / usd_byn_rate
-    print(target_currency_amount, byn_item, "=", currency_result, byn_item)
-else:
-    print("Unknown currency")
 
+currency_result = 0
+# 30. Oбменник
+list = ['uah', 'rub', 'byn', 'chf', 'eur']
+while currency_convertor:
+    target_currency = input("Введите название валюты: ")
+    if target_currency in list[0]:
+        sum = input("Введите сумму: ")
+        currency_result = float(sum) / usd_uah_rate
+        print(sum, list[0], '= ', '%.2f' % currency_result, usd_item)
+        break
+    elif target_currency in list[1]:
+        sum = input("Введите сумму: ")
+        currency_result = float(sum) * usd_rub_rate
+        print(sum, list[1], '= ', '%.2f' % currency_result, usd_item)
+        break
+    elif target_currency in list[2]:
+        sum = input("Введите сумму: ")
+        currency_result = float(sum) / usd_byn_rate
+        print(sum, list[2], '= ', '%.2f' % currency_result, usd_item)
+        break
+    elif target_currency in list[3]:
+        sum = input("Введите сумму: ")
+        currency_result = float(sum) / usd_chf_rate
+        print(sum, list[3], '= ', '%.2f' % currency_result, usd_item)
+        break
+    elif target_currency in list[4]:
+        sum = input("Введите сумму: ")
+        currency_result = float(sum) / usd_eur_rate
+        print(sum, list[4], '= ', '%.2f' % currency_result, usd_item)
+        break
+    else:
+        print("Попробуйте еще раз!")
 
 
 
